@@ -22,19 +22,19 @@ async function getQuote(){
     loading()
 
     const proxyURL='https://cors-anywhere.herokuapp.com/'
-    const baseURL='http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en';
+    const baseURL='api.quotable.io/random';
     // const baseURL= 'https://random-quote-generator.herokuapp.com/api/quotes/random'
     try {
         const response= await fetch(proxyURL+baseURL);
         const data=await response.json()
         // if author is blank add unknown
-        if (data.quoteAuthor===''){
+        if (data.author===''){
             authorText.innerText='Unknown';
         }else {
-            authorText.innerText='- '+data.quoteAuthor;
+            authorText.innerText='- '+data.author;
         }
         // Reduce font size for long quotes
-        if (data.quoteText.length>50){
+        if (data.content.length>50){
              quoteText.classList.add('long-quote')
         }else{
             quoteText.classList.remove('long-quote')
