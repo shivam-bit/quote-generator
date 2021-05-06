@@ -22,7 +22,7 @@ async function getQuote(){
     loading()
 
     const proxyURL='https://cors-anywhere.herokuapp.com/'
-    const baseURL='api.quotable.io/random';
+    const baseURL='http://api.quotable.io/random';
     // const baseURL= 'https://random-quote-generator.herokuapp.com/api/quotes/random'
     try {
         const response= await fetch(proxyURL+baseURL);
